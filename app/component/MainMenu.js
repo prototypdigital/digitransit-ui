@@ -3,7 +3,7 @@ import React from 'react';
 import { FormattedMessage, intlShape } from 'react-intl';
 import { Link } from 'react-router';
 
-import DisruptionInfoButtonContainer from './DisruptionInfoButtonContainer';
+// import DisruptionInfoButtonContainer from './DisruptionInfoButtonContainer';
 import Icon from './Icon';
 import LangSelect from './LangSelect';
 import MainMenuLinks from './MainMenuLinks';
@@ -30,16 +30,16 @@ function MainMenu(props, { config, intl }) {
           <FormattedMessage id="frontpage" defaultMessage="Frontpage" />
         </Link>
       </div>
-      {config.mainMenu.showDisruptions &&
-        props.showDisruptionInfo && (
-          <div className="offcanvas-section">
-            <DisruptionInfoButtonContainer />
-          </div>
-        )}
+      {/* {config.mainMenu.showDisruptions && props.showDisruptionInfo && (
+        <div className="offcanvas-section">
+          <DisruptionInfoButtonContainer />
+        </div>
+      )} */}
       <MainMenuLinks
         content={(
-          [config.appBarLink].concat(config.footer && config.footer.content) ||
-          []
+          [...config.appBarLinks].concat(
+            config.footer && config.footer.content,
+          ) || []
         ).filter(item => item.href || item.route)}
       />
     </div>

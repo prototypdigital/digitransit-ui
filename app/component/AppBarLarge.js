@@ -59,8 +59,14 @@ const AppBarLarge = (
             <Icon img="icon-icon_caution" className="caution-topbar" />
           </a>
         </div>
-        <div className="padding-horizontal-large navi-margin">
-          <ExternalLink className="external-top-bar" {...config.appBarLink} />
+        <div className="navi-margin">
+          {config.appBarLinks.map(item => (
+            <ExternalLink
+              key={item.name}
+              className="external-top-bar margin-horizontal-small"
+              {...item}
+            />
+          ))}
         </div>
       </div>
       <MessageBar />

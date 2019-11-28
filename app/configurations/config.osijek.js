@@ -59,7 +59,12 @@ export default {
     STOP_TIMETABLES: { HSL: `${API_URL}/timetables/v1/hsl/stops/` },
   },
 
-  appBarLink: { name: 'Grad Osijek', href: 'https://www.osijek.hr/' },
+  appBarLinks: [
+    { name: 'Grad Osijek', href: 'https://www.osijek.hr/' },
+    { name: 'GPP', href: 'http://www.gpp-osijek.com/' },
+    { name: 'HŽPP', href: 'https://prodaja.hzpp.hr/' },
+    { name: 'Flixbus', href: 'https://global.flixbus.com/' },
+  ],
 
   colors: {
     primary: '#9fbf4e',
@@ -95,35 +100,35 @@ export default {
   ],
 
   defaultEndpoint: {
-    address: 'Osijek',
-    lon: 18.67692,
-    lat: 45.56142,
+    address: 'Željeznički kolodvor Osijek',
+    lon: 18.68376,
+    lat: 45.55281,
   },
 
   defaultOrigins: [
     {
       icon: 'icon-icon_info',
       label: 'Trg Ante Starčevića ',
-      lat: 45.56156,
       lon: 18.677,
+      lat: 45.56156,
     },
     {
       icon: 'icon-icon_info',
       label: 'Tvrđa ',
-      lat: 45.56085,
       lon: 18.69599,
+      lat: 45.56085,
     },
     {
       icon: 'icon-icon_bus',
       label: 'Autobusni kolodvor Osijek',
-      lat: 45.55303,
       lon: 18.67992,
+      lat: 45.55303,
     },
     {
       icon: 'icon-icon_rail',
       label: 'Željeznički kolodvor Osijek',
-      lat: 45.55281,
       lon: 18.68376,
+      lat: 45.55281,
     },
   ],
 
@@ -150,41 +155,6 @@ export default {
     zoomOffset: -1,
     minZoom: 1,
     maxZoom: 18,
-    controls: {
-      zoom: {
-        // available controls positions: 'topleft', 'topright', 'bottomleft, 'bottomright'
-        position: 'bottomleft',
-      },
-      scale: {
-        position: 'bottomright',
-      },
-    },
-    genericMarker: {
-      // Do not render name markers at zoom levels below this value
-      nameMarkerMinZoom: 18,
-
-      popup: {
-        offset: [106, 16],
-        maxWidth: 250,
-        minWidth: 250,
-      },
-    },
-
-    line: {
-      halo: {
-        weight: 7,
-        thinWeight: 4,
-      },
-
-      leg: {
-        weight: 5,
-        thinWeight: 2,
-      },
-
-      passiveColor: '#758993',
-    },
-
-    useModeIconsInNonTileLayer: false,
   },
 
   sprites: 'assets/svg-sprite.default.svg',
@@ -217,6 +187,14 @@ export default {
       exclusive: true,
       icon: 'car-withoutBox',
     },
+  },
+
+  mainMenu: {
+    // Whether to show the left menu toggle button at all
+    show: true,
+    showDisruptions: false,
+    showLoginCreateAccount: true,
+    showOffCanvasList: true,
   },
 
   footer: {

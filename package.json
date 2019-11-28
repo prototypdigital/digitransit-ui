@@ -5,40 +5,32 @@
   "author": "digitransit@hsl.fi",
   "license": "(AGPL-3.0 OR EUPL-1.2)",
   "scripts": {
-    "static":
-      "mkdir -p _static/js; mkdir -p _static/css; cp -r static/* _static",
-    "win-static":
-      "xcopy static\\* _static /e /s /y /i& if not exist _static\\js mkdir _static\\js& if not exist _static\\css mkdir _static\\css",
+    "static": "mkdir -p _static/js; mkdir -p _static/css; cp -r static/* _static",
+    "win-static": "xcopy static\\* _static /e /s /y /i& if not exist _static\\js mkdir _static\\js& if not exist _static\\css mkdir _static\\css",
     "prebuild": "npm run static",
     "predev": "npm run static",
     "predev-win-hsl": "npm run win-static",
     "predev-win-national": "npm run win-static",
-    "dev":
-      "PID=$$; trap 'pkill -QUIT -P $PID > /dev/null' EXIT; CONFIG=osijek NODE_ENV=development nodemon -e js,css,scss,html --watch ./server/ --watch ./app/ server/server.js & NODE_ENV=development webpack-dev-server",
+    "dev": "PID=$$; trap 'pkill -QUIT -P $PID > /dev/null' EXIT; CONFIG=osijek NODE_ENV=development nodemon -e js,css,scss,html --watch ./server/ --watch ./app/ server/server.js & NODE_ENV=development webpack-dev-server",
     "dev-win-hsl": "cd win-launch-scripts&& hsl-win-launch-script.bat",
-    "dev-win-national":
-      "cd win-launch-scripts&& set CONFIG=&& national-win-launch-script.bat",
-    "dev-nowatch":
-      "NODE_ENV=development node server/server.js & NODE_ENV=development webpack-dev-server",
+    "dev-win-national": "cd win-launch-scripts&& set CONFIG=&& national-win-launch-script.bat",
+    "dev-nowatch": "NODE_ENV=development node server/server.js & NODE_ENV=development webpack-dev-server",
     "test-local": "./test/flow/script/run-ui-tests.sh local",
     "test-browserstack": "./test/flow/script/run-ui-tests.sh browserstack",
     "test-coverage": "NODE_ENV=test nyc yarn run test-unit",
     "test-report": "codecov",
     "test-smoke": "./test/flow/script/run-ui-tests.sh smoke",
     "test-saucelabs": "./test/flow/script/run-ui-tests.sh saucelabs",
-    "test-unit":
-      "mocha --require mock-local-storage --file test/unit/helpers/babel-register.js --file test/unit/helpers/init.js \"test/unit/**/*.test.js\"",
+    "test-unit": "mocha --require mock-local-storage --file test/unit/helpers/babel-register.js --file test/unit/helpers/init.js \"test/unit/**/*.test.js\"",
     "test-visual": "gemini --reporter flat test test/visual/",
     "test-visual-update": "gemini update test/visual/",
     "es-lint": "eslint .",
     "lint": "npm run es-lint && npm run stylelint",
     "stylelint": "stylelint sass/**/*.scss app/**/*.scss --syntax scss",
-    "build":
-      "NODE_ENV=production node --max_old_space_size=4096 node_modules/.bin/webpack --progress --color --display-error-details",
+    "build": "NODE_ENV=production node --max_old_space_size=4096 node_modules/.bin/webpack --progress --color --display-error-details",
     "win-build": "set NODE_ENV=production&& webpack --progress --color",
     "start": "NODE_ENV=production node $NODE_OPTS server/server",
-    "win-start":
-      "set NODE_ENV=production&& set CONFIG=hsl&& node server/server.js",
+    "win-start": "set NODE_ENV=production&& set CONFIG=hsl&& node server/server.js",
     "add-theme": "node build/add-theme"
   },
   "main": "server.js",
@@ -54,7 +46,11 @@
     "node": ">=8.11.2",
     "npm": ">=3.0"
   },
-  "browserslist": ["IE 11", "> 0.2% in FI", "not op_mini all"],
+  "browserslist": [
+    "IE 11",
+    "> 0.2% in FI",
+    "not op_mini all"
+  ],
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
@@ -86,10 +82,8 @@
     "hoist-non-react-statics": "2.5.4",
     "htm-to-json": "0.1.4",
     "intl": "1.2.5",
-    "isomorphic-relay":
-      "github:hannesj/isomorphic-relay#feature-relay-1-public",
-    "isomorphic-relay-router":
-      "github:michaelstockton/isomorphic-relay-router#feature-relay-1-public",
+    "isomorphic-relay": "github:hannesj/isomorphic-relay#feature-relay-1-public",
+    "isomorphic-relay-router": "github:michaelstockton/isomorphic-relay-router#feature-relay-1-public",
     "leaflet": "1.4.0",
     "leaflet-active-area": "1.1.0",
     "lodash": "4.17.14",
