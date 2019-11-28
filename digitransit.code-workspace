@@ -1,11 +1,14 @@
 {
   "folders": [
-	{
-		"path": "/Users/vvlahek/Projects/digitransit-otp"
-	},
-	{
-		"path": "."
-	}
-],
+    {
+      "path": "/Users/vvlahek/Projects/digitransit-otp"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "/Users/vvlahek/Projects/digitransit-docker"
+    }
+  ],
   "settings": {}
 }
