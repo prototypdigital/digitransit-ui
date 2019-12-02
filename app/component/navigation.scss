@@ -71,8 +71,7 @@ $content-background-color: $background-color;
     color: $top-navigation-title-color;
   }
   .logo {
-    height: 100%;
-    min-height: 40px;
+    height: 28px;
     min-width: 8em;
     background-size: contain;
     background-repeat: no-repeat;
@@ -470,4 +469,8 @@ section.content {
     font-size: $font-size-xxsmall;
     text-decoration: none;
   }
+}
+
+.navi-margin {
+  margin-right: 30px;
 }

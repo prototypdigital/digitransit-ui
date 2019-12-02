@@ -44,10 +44,10 @@ const AppBarLarge = (
           {logoElement}
         </button>
         <div className="empty-space flex-grow" />
-        <div className="navi-languages right-border navi-margin">
+        <div className="navi-languages right-border">
           <LangSelect />
         </div>
-        <div className="navi-icons navi-margin padding-horizontal-large">
+        {/* <div className="navi-icons navi-margin padding-horizontal-large">
           <a
             className="noborder"
             onClick={openDisruptionInfo}
@@ -58,7 +58,7 @@ const AppBarLarge = (
           >
             <Icon img="icon-icon_caution" className="caution-topbar" />
           </a>
-        </div>
+        </div> */}
         <div className="navi-margin">
           {config.appBarLinks.map(item => (
             <ExternalLink
