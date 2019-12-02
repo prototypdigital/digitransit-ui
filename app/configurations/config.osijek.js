@@ -13,7 +13,7 @@ const FONT =
  * Service endpoints
  */
 // API
-const API_URL = process.env.API_URL || 'https://api.e-gpp.hr';
+const API_URL = process.env.API_URL || 'https://api.cityrouting.e-gpp.hr';
 const OTP = process.env.OTP_URL || `${API_URL}/routing/v1/routers/croatia/`;
 const GEOCODING_BASE_URL = `${API_URL}/geocoding/v1`;
 
