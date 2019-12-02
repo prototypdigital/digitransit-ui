@@ -12,9 +12,9 @@ ENV \
   SENTRY_DSN='' \
   SENTRY_SECRET_DSN='' \
   PORT=8080 \
-  API_URL='https://api.cityrouting.prototyp.digital' \
-  MAP_URL='https://maps.wikimedia.org/osm-intl/' \
-  OTP_URL='https://api.cityrouting.prototyp.digital/routing/v1/routers/osijek/' \
+  API_URL='' \
+  MAP_URL='' \
+  OTP_URL='' \
   GEOCODING_BASE_URL='' \
   APP_PATH='' \
   CONFIG='osijek' \
