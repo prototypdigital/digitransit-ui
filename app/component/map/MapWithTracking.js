@@ -20,7 +20,7 @@ import {
 } from '../../action/realTimeClientAction';
 import triggerMessage from '../../util/messageUtils';
 
-const DEFAULT_ZOOM = 17;
+const DEFAULT_ZOOM = 15;
 const FOCUS_ZOOM = 16;
 
 const onlyUpdateCoordChanges = onlyUpdateForKeys([
