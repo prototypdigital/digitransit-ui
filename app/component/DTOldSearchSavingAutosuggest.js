@@ -49,7 +49,10 @@ class DTOldSearchSavingAutosuggest extends React.Component {
       default:
     }
 
-    if (item.type.indexOf('Favourite') === -1) {
+    if (
+      item.type.indexOf('Favourite') === -1 &&
+      item.type.indexOf('clear') === -1
+    ) {
       this.context.executeAction(saveSearch, { item, type });
     }
     this.props.onSelect(item, type);

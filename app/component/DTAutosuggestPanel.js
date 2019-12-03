@@ -160,8 +160,8 @@ class DTAutosuggestPanel extends React.Component {
       activeViaPointSlacks.splice(foundAtIndex, 1);
     }
     return viaPointRemoved
-      ? activeViaPointSlacks.map(
-          value => (value > updatedViaPointIndex ? value - 1 : value),
+      ? activeViaPointSlacks.map(value =>
+          value > updatedViaPointIndex ? value - 1 : value,
         )
       : activeViaPointSlacks;
   };
@@ -338,6 +338,10 @@ class DTAutosuggestPanel extends React.Component {
                 }
               }
 
+              if (location.type === 'clear') {
+                newOrigin = { set: false };
+              }
+
               navigateTo({
                 base: locationWithTime,
                 origin: newOrigin,
@@ -497,6 +501,10 @@ class DTAutosuggestPanel extends React.Component {
                   if (origin.gps === true) {
                     updatedOrigin = { set: false };
                   }
+                }
+
+                if (location.type === 'clear') {
+                  destination = { set: false };
                 }
 
                 navigateTo({

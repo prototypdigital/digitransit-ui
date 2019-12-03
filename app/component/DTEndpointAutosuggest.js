@@ -112,6 +112,11 @@ export class DTEndpointAutosuggestComponent extends React.Component {
   };
 
   onSuggestionSelected = item => {
+    if (item.type === 'clear') {
+      this.props.onLocationSelected(item);
+      return;
+    }
+
     // preferred route selection
     if (this.props.isPreferredRouteSearch && this.props.onRouteSelected) {
       this.props.onRouteSelected(item);
