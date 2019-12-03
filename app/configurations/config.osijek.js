@@ -92,7 +92,7 @@ export default {
 
   favicon: './app/configurations/images/osijek/favicon.png',
 
-  feedIds: ['Osijek'],
+  feedIds: ['croatia'],
   availableLanguages: ['hr', 'en'],
   defaultLanguage: 'hr',
 
