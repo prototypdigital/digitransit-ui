@@ -11,6 +11,15 @@
     },
     {
       "path": "/Users/vvlahek/Projects/digitransit-proxy"
+    },
+    {
+      "path": "/Users/vvlahek/Projects/digitransit-pelias"
+    },
+    {
+      "path": "/Users/vvlahek/Projects/digitransit-data-container"
+    },
+    {
+      "path": "/Users/vvlahek/Projects/digitransit-map-server"
     }
   ],
   "settings": {}
