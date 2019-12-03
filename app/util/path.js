@@ -7,12 +7,12 @@ import {
 } from './otpStrings';
 
 const debug = d('path.js');
-export const TAB_NEARBY = 'lahellasi';
-export const TAB_FAVOURITES = 'suosikit';
-export const PREFIX_ROUTES = 'linjat';
-export const PREFIX_STOPS = 'pysakit';
-export const PREFIX_TERMINALS = 'terminaalit';
-export const PREFIX_ITINERARY_SUMMARY = 'reitti';
+export const TAB_NEARBY = 'u-blizuni';
+export const TAB_FAVOURITES = 'favoriti';
+export const PREFIX_ROUTES = 'ruta';
+export const PREFIX_STOPS = 'stajaliste';
+export const PREFIX_TERMINALS = 'terminal';
+export const PREFIX_ITINERARY_SUMMARY = 'vozni-red';
 export const stopUrl = id => id;
 
 export const getRoutePath = (origin, destination) =>
