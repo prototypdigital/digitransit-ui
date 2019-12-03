@@ -74,9 +74,9 @@ export default {
   GTMid: 'GTM-PZV2S2V',
 
   /*
- * by default search endpoints from all but gtfs sources, correct gtfs source
- * figured based on feedIds config variable
- */
+   * by default search endpoints from all but gtfs sources, correct gtfs source
+   * figured based on feedIds config variable
+   */
   searchSources: ['oa', 'osm', 'nlsfi'],
 
   search: {
@@ -162,8 +162,8 @@ export default {
   maxBikingDistance: 100000,
   itineraryFiltering: 1.5, // drops 66% worse routes
   useUnpreferredRoutesPenalty: 1200, // adds 10 minute (weight) penalty to routes that are unpreferred
-  availableLanguages: ['fi', 'sv', 'en', 'fr', 'nb', 'de'],
-  defaultLanguage: 'en',
+  availableLanguages: ['hr', 'fi', 'sv', 'en', 'fr', 'nb', 'de'],
+  defaultLanguage: 'hr',
   // This timezone data will expire on 31.12.2020
   timezoneData:
     'Europe/Helsinki|EET EEST|-20 -30|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 ' +

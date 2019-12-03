@@ -66,6 +66,15 @@ export default {
     { name: 'Flixbus', href: 'https://global.flixbus.com/' },
   ],
 
+  searchSources: ['osm', 'openstreetmap'],
+
+  modeToOTP: {
+    bus: 'BUS',
+    tram: 'TRAM',
+    rail: 'RAIL',
+    walk: 'WALK',
+  },
+
   colors: {
     primary: '#9fbf4e',
   },
