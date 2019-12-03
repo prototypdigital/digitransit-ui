@@ -33,10 +33,10 @@ const PORT = process.env.PORT || 8080;
 /**
  * Map boundaries
  */
-const minLon = 45.3244;
-const maxLon = 45.8938;
-const minLat = 18.2342;
-const maxLat = 19.1046;
+const minLat = 45.3244;
+const maxLat = 45.8938;
+const minLon = 18.2342;
+const maxLon = 19.1046;
 
 /**
  * Config
