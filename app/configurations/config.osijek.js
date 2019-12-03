@@ -81,6 +81,8 @@ export default {
 
   logo: 'osijek/logo.png',
 
+  favicon: './app/configurations/images/osijek/favicon.png',
+
   feedIds: ['Osijek'],
   availableLanguages: ['hr', 'en'],
   defaultLanguage: 'hr',
@@ -147,6 +149,16 @@ export default {
       availableForSelection: true,
       defaultValue: false,
     },
+
+    ferry: {
+      availableForSelection: false,
+      defaultValue: false,
+    },
+
+    subway: {
+      availableForSelection: false,
+      defaultValue: false,
+    },
   },
 
   map: {
@@ -155,6 +167,16 @@ export default {
     zoomOffset: -1,
     minZoom: 1,
     maxZoom: 18,
+    genericMarker: {
+      // Do not render name markers at zoom levels below this value
+      nameMarkerMinZoom: 18,
+
+      popup: {
+        offset: [106, 16],
+        maxWidth: 250,
+        minWidth: 250,
+      },
+    },
   },
 
   sprites: 'assets/svg-sprite.default.svg',

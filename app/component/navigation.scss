@@ -105,7 +105,7 @@ $content-background-color: $background-color;
 #lang-select {
   color: white;
   border-bottom: 1px solid #262626;
-  padding: 0px 5px;
+  padding: 0px 12px;
   .lang {
     @include font-medium;
     font-size: $font-size-small;
@@ -132,7 +132,7 @@ $content-background-color: $background-color;
 }
 
 .right-border {
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 .navi-icons {
@@ -472,5 +472,6 @@ section.content {
 }
 
 .navi-margin {
+  margin-left: 12px;
   margin-right: 30px;
 }
