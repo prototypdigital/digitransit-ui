@@ -7,7 +7,7 @@ import {
 } from './otpStrings';
 
 const debug = d('path.js');
-export const TAB_NEARBY = 'u-blizuni';
+export const TAB_NEARBY = 'u-blizini';
 export const TAB_FAVOURITES = 'favoriti';
 export const PREFIX_ROUTES = 'ruta';
 export const PREFIX_STOPS = 'stajaliste';
