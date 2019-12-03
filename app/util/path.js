@@ -7,7 +7,7 @@ import {
 } from './otpStrings';
 
 const debug = d('path.js');
-export const TAB_NEARBY = 'u-blizuni';
+export const TAB_NEARBY = 'u-blizini';
 export const TAB_FAVOURITES = 'favoriti';
 export const PREFIX_ROUTES = 'ruta';
 export const PREFIX_STOPS = 'stajaliste';
@@ -29,9 +29,9 @@ export const isEmpty = s =>
   s === undefined || s === null || s.trim() === '' || s.trim() === '-';
 
 export const getEndpointPath = (origin, destination, tab) => {
-  if (isEmpty(origin) && isEmpty(destination)) {
-    return '/';
-  }
+  // if (isEmpty(origin) && isEmpty(destination)) {
+  //   return '/';
+  // }
   return [
     '',
     encodeURIComponent(isEmpty(origin) ? '-' : origin),
