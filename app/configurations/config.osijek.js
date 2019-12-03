@@ -54,7 +54,7 @@ export default {
     FONT,
     ASSET_URL: process.env.ASSET_URL,
     MAP: { default: MAP_URL },
-    STOP_MAP: `${API_URL}/map/v1/osijek-stop-map/`,
+    STOP_MAP: `${API_URL}/map/v1/croatia-stop-map/`,
     ROUTE_TIMETABLES: { HSL: `${API_URL}/timetables/v1/hsl/routes/` },
     STOP_TIMETABLES: { HSL: `${API_URL}/timetables/v1/hsl/stops/` },
   },
