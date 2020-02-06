@@ -13,10 +13,9 @@ const FONT =
  * Service endpoints
  */
 // API
-const API_URL =
-  process.env.API_URL || 'https://api.cityrouting.prototyp.digital';
+const API_URL = process.env.API_URL || 'https://cityrouting.e-gpp.hr';
 const OTP = process.env.OTP_URL || `${API_URL}/routing/v1/routers/croatia/`;
-const GEOCODING_BASE_URL = `https://api.cityrouting.e-gpp.hr/geocoding/v1`;
+const GEOCODING_BASE_URL = `https://cityrouting.e-gpp.hr/geocoding/v1`;
 
 // GEOCODER
 const PELIAS = `${process.env.GEOCODING_BASE_URL || GEOCODING_BASE_URL}/search`;
