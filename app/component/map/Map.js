@@ -143,7 +143,7 @@ export default class Map extends React.Component {
         >
           <TileLayer
             onLoad={this.setLoaded}
-            url={`${mapUrl}{z}/{x}/{y}{size}.png`}
+            url={`${mapUrl}{z}/{x}/{y}{size}.png?key=7NRu4AyghkT1zKVHqqzG`}
             tileSize={config.map.tileSize || 256}
             zoomOffset={config.map.zoomOffset || 0}
             updateWhenIdle={false}
@@ -157,7 +157,7 @@ export default class Map extends React.Component {
           />
           <AttributionControl
             position="bottomright"
-            prefix="&copy; <a tabindex=&quot;-1&quot; href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a>"
+            prefix='&copy; <a tabindex="-1" href="http://osm.org/copyright">OpenStreetMap</a>'
           />
           {this.props.showScaleBar && (
             <ScaleControl

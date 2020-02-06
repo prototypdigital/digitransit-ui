@@ -24,7 +24,7 @@ const PELIAS_REVERSE_GEOCODER = `${process.env.GEOCODING_BASE_URL ||
   GEOCODING_BASE_URL}/reverse`;
 
 // MAP
-const MAP_URL = process.env.MAP_URL || 'https://maps.wikimedia.org/osm-intl/';
+const MAP_URL = process.env.MAP_URL || 'https://api.maptiler.com/maps/basic/';
 
 /**
  * Port settings
