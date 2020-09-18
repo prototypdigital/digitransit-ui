@@ -19,8 +19,9 @@ const GEOCODING_BASE_URL = `https://api.cityrouting.e-gpp.hr/geocoding/v1`;
 
 // GEOCODER
 const PELIAS = `${process.env.GEOCODING_BASE_URL || GEOCODING_BASE_URL}/search`;
-const PELIAS_REVERSE_GEOCODER = `${process.env.GEOCODING_BASE_URL ||
-  GEOCODING_BASE_URL}/reverse`;
+const PELIAS_REVERSE_GEOCODER = `${
+  process.env.GEOCODING_BASE_URL || GEOCODING_BASE_URL
+}/reverse`;
 
 // MAP
 const MAP_URL = process.env.MAP_URL || 'https://api.maptiler.com/maps/basic/';
@@ -169,6 +170,37 @@ export default {
       defaultValue: false,
     },
   },
+
+  nearestStopDistance: {
+    maxShownDistance: 5000,
+  },
+
+  stopCard: {
+    header: {
+      showDescription: true,
+      showStopCode: true,
+      showDistance: true,
+      showZone: false,
+    },
+  },
+
+  // Lowest level for stops and terminals are rendered
+  stopsMinZoom: 13,
+  // Highest level when stops and terminals are still rendered as small markers
+  stopsSmallMaxZoom: 14,
+  // Highest level when terminals are still rendered instead of individual stops
+  terminalStopsMaxZoom: 17,
+  terminalStopsMinZoom: 12,
+  terminalNamesZoom: 16,
+  mergeStopsByCode: true,
+  stopsIconSize: {
+    small: 8,
+    selected: 28,
+    default: 18,
+  },
+
+  showAllBusses: true,
+  showVehiclesOnStopPage: true,
 
   map: {
     useRetinaTiles: true,

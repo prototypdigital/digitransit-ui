@@ -28,7 +28,7 @@ class Stops {
     this.tile = tile;
     this.config = config;
     this.mapLayers = mapLayers;
-    // this.promise = this.getPromise();
+    this.promise = this.getPromise();
     this.getCurrentTime = getCurrentTime;
   }
 
