@@ -11,14 +11,14 @@ import { PREFIX_ROUTES } from '../util/path';
 // TODO: Alerts aren't showing properly
 // Need to implement logic as per DepartureListContainer
 function NextDeparturesList(props, context) {
-  const departures = props.departures.map(originalDeparture => {
+  const departures = props.departures.map((originalDeparture) => {
     const { distance } = originalDeparture;
 
     // TODO: use util or util Component
     const roundedDistance =
       distance < 1000
-        ? (distance - distance % 10) / 1000
-        : (distance - distance % 100) / 1000;
+        ? (distance - (distance % 10)) / 1000
+        : (distance - (distance % 100)) / 1000;
 
     const departure = Object.assign({}, originalDeparture, { roundedDistance });
 
@@ -41,14 +41,12 @@ function NextDeparturesList(props, context) {
   });
 
   const departureObjs = sortBy(departures, ['roundedDistance', 'sorttime']).map(
-    departure => {
+    (departure) => {
       const { stoptime } = departure;
 
-      const departureTimes = stoptime.stoptimes.map(departureTime => {
+      const departureTimes = stoptime.stoptimes.map((departureTime) => {
         const canceled = departureTime.realtimeState === 'CANCELED';
-        const key = `${stoptime.pattern.route.gtfsId}:${
-          stoptime.pattern.headsign
-        }:
+        const key = `${stoptime.pattern.route.gtfsId}:${stoptime.pattern.headsign}:
         ${departureTime.realtimeDeparture}`;
 
         return (
@@ -66,13 +64,11 @@ function NextDeparturesList(props, context) {
         );
       });
 
-      const getDeparture = val => {
+      const getDeparture = (val) => {
         context.router.push(val);
       };
 
-      const departureLinkUrl = `/${PREFIX_ROUTES}/${
-        stoptime.pattern.route.gtfsId
-      }/pysakit/${stoptime.pattern.code}`;
+      const departureLinkUrl = `/${PREFIX_ROUTES}/${stoptime.pattern.route.gtfsId}/stajaliste/${stoptime.pattern.code}`;
 
       // In case there's only one departure for the route,
       // add a dummy cell to keep the table layout from breaking

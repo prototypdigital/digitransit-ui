@@ -20,10 +20,10 @@ import {
   changeRealTimeClientTopics,
 } from '../action/realTimeClientAction';
 
-const asDepartures = stoptimes =>
+const asDepartures = (stoptimes) =>
   !stoptimes
     ? []
-    : stoptimes.map(stoptime => {
+    : stoptimes.map((stoptime) => {
         const isArrival = stoptime.pickupType === 'NONE';
         let isLastStop = false;
         if (stoptime.trip && stoptime.trip.stops) {
@@ -31,8 +31,8 @@ const asDepartures = stoptimes =>
           isLastStop = stoptime.stop.id === lastStop.id;
         }
         /* OTP returns either scheduled time or realtime prediction in
-           * 'realtimeDeparture' and 'realtimeArrival' fields.
-           * EXCEPT when state is CANCELLED, then it returns -1 for realtime  */
+         * 'realtimeDeparture' and 'realtimeArrival' fields.
+         * EXCEPT when state is CANCELLED, then it returns -1 for realtime  */
         const canceled = stoptime.realtimeState === 'CANCELED';
         const arrivalTime =
           stoptime.serviceDay +
@@ -46,7 +46,7 @@ const asDepartures = stoptimes =>
 
         const { pattern } = stoptime.trip;
         return {
-          alerts: get(pattern, 'route.alerts', []).filter(alert =>
+          alerts: get(pattern, 'route.alerts', []).filter((alert) =>
             patternIdPredicate(alert, get(pattern, 'code', undefined)),
           ),
           canceled,
@@ -90,8 +90,8 @@ class DepartureListContainer extends Component {
   componentDidMount() {
     if (this.context.config.showVehiclesOnStopPage && this.props.isStopPage) {
       const departures = asDepartures(this.props.stoptimes)
-        .filter(departure => !(this.props.isTerminal && departure.isArrival))
-        .filter(departure => this.props.currentTime < departure.stoptime);
+        .filter((departure) => !(this.props.isTerminal && departure.isArrival))
+        .filter((departure) => this.props.currentTime < departure.stoptime);
       this.startClient(departures);
     }
   }
@@ -99,9 +99,9 @@ class DepartureListContainer extends Component {
   componentDidUpdate() {
     if (this.context.config.showVehiclesOnStopPage && this.props.isStopPage) {
       const departures = asDepartures(this.props.stoptimes)
-        .filter(departure => !(this.props.isTerminal && departure.isArrival))
-        .filter(departure => this.props.currentTime < departure.stoptime)
-        .filter(departure => departure.realtime);
+        .filter((departure) => !(this.props.isTerminal && departure.isArrival))
+        .filter((departure) => this.props.currentTime < departure.stoptime)
+        .filter((departure) => departure.realtime);
 
       this.updateClient(departures);
     }
@@ -116,16 +116,16 @@ class DepartureListContainer extends Component {
     }
   }
 
-  configClient = departures => {
+  configClient = (departures) => {
     const trips = departures
-      .filter(departure => departure.realtime)
+      .filter((departure) => departure.realtime)
       .filter(
-        departure =>
+        (departure) =>
           departure.pattern.stops
-            .map(stop => stop.code)
+            .map((stop) => stop.code)
             .indexOf(departure.stop.code) >= 0,
       )
-      .map(departure => ({
+      .map((departure) => ({
         tripId: departure.trip.gtfsId.split(':')[1],
       }));
 
@@ -134,7 +134,7 @@ class DepartureListContainer extends Component {
     let agency;
 
     /* handle multiple feedid case */
-    config.feedIds.forEach(ag => {
+    config.feedIds.forEach((ag) => {
       if (!agency && realTime[ag]) {
         agency = ag;
       }
@@ -150,14 +150,14 @@ class DepartureListContainer extends Component {
     return null;
   };
 
-  startClient = departures => {
+  startClient = (departures) => {
     const clientConfig = this.configClient(departures);
     if (clientConfig) {
       this.context.executeAction(startRealTimeClient, clientConfig);
     }
   };
 
-  updateClient = departures => {
+  updateClient = (departures) => {
     const { client, topics } = this.context.getStore(
       'RealTimeInformationStore',
     );
@@ -184,22 +184,15 @@ class DepartureListContainer extends Component {
     const departureObjs = [];
     const { currentTime, limit, isTerminal, stoptimes } = this.props;
 
-    let currentDate = moment
-      .unix(currentTime)
-      .startOf('day')
-      .unix();
-    let tomorrow = moment
-      .unix(currentTime)
-      .add(1, 'day')
-      .startOf('day')
-      .unix();
+    let currentDate = moment.unix(currentTime).startOf('day').unix();
+    let tomorrow = moment.unix(currentTime).add(1, 'day').startOf('day').unix();
 
     const departures = asDepartures(stoptimes)
-      .filter(departure => !(isTerminal && departure.isArrival))
-      .filter(departure => currentTime < departure.stoptime)
+      .filter((departure) => !(isTerminal && departure.isArrival))
+      .filter((departure) => currentTime < departure.stoptime)
       .slice(0, limit);
 
-    departures.forEach(departure => {
+    departures.forEach((departure) => {
       if (departure.stoptime >= tomorrow) {
         departureObjs.push(
           <div
@@ -211,11 +204,7 @@ class DepartureListContainer extends Component {
         );
 
         currentDate = tomorrow;
-        tomorrow = moment
-          .unix(currentDate)
-          .add(1, 'day')
-          .startOf('day')
-          .unix();
+        tomorrow = moment.unix(currentDate).add(1, 'day').startOf('day').unix();
       }
 
       const id = `${departure.pattern.code}:${departure.stoptime}`;
@@ -245,9 +234,7 @@ class DepartureListContainer extends Component {
       if (this.props.routeLinks) {
         departureObjs.push(
           <Link
-            to={`/${PREFIX_ROUTES}/${departure.pattern.route.gtfsId}/pysakit/${
-              departure.pattern.code
-            }`}
+            to={`/${PREFIX_ROUTES}/${departure.pattern.route.gtfsId}/stajaliste/${departure.pattern.code}`}
             key={id}
           >
             {departureObj}

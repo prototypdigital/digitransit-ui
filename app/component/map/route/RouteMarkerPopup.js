@@ -11,7 +11,7 @@ import RouteHeader from '../../RouteHeader';
 import { addFavouriteRoute } from '../../../action/FavouriteActions';
 
 function RouteMarkerPopup(props) {
-  let patternPath = `/${PREFIX_ROUTES}/${props.trip.route.gtfsId}/pysakit`;
+  let patternPath = `/${PREFIX_ROUTES}/${props.trip.route.gtfsId}/stajaliste`;
   let tripPath = patternPath;
 
   if (props.trip.fuzzyTrip) {
@@ -71,7 +71,7 @@ const RouteMarkerPopupWithFavourite = connectToStores(
     favourite: context
       .getStore('FavouriteRoutesStore')
       .isFavourite(props.trip.route.gtfsId),
-    addAsFavouriteRoute: e => {
+    addAsFavouriteRoute: (e) => {
       e.stopPropagation();
       context.executeAction(addFavouriteRoute, props.trip.route.gtfsId);
     },

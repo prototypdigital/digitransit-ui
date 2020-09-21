@@ -30,7 +30,7 @@ const Tab = {
   Timetable: 'aikataulu',
 };
 
-const getActiveTab = pathname => {
+const getActiveTab = (pathname) => {
   if (pathname.indexOf(`/${Tab.Disruptions}`) > -1) {
     return Tab.Disruptions;
   }
@@ -53,7 +53,7 @@ function StopPageTabContainer(
   const activeTab = getActiveTab(pathname);
   const isTerminal = params.terminalId != null;
   const urlBase = `/${
-    isTerminal ? 'terminaalit' : 'pysakit'
+    isTerminal ? 'terminaalit' : 'stajaliste'
   }/${encodeURIComponent(
     params.terminalId ? params.terminalId : params.stopId,
   )}`;
@@ -153,8 +153,9 @@ function StopPageTabContainer(
             <div className="stop-tab-singletab-container">
               <div>
                 <Icon
-                  className={`stop-page-tab_icon ${disruptionClassName ||
-                    `no-alerts`}`}
+                  className={`stop-page-tab_icon ${
+                    disruptionClassName || `no-alerts`
+                  }`}
                   img={hasActiveAlert ? 'icon-icon_caution' : 'icon-icon_info'}
                 />
               </div>

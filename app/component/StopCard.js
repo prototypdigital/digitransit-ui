@@ -8,7 +8,7 @@ function StopCard(props) {
   if (!props.stop || !props.children || props.children.length === 0) {
     return false;
   }
-  const prefix = props.isTerminal ? 'terminaalit' : 'pysakit';
+  const prefix = props.isTerminal ? 'terminaalit' : 'stajaliste';
 
   return (
     <Link

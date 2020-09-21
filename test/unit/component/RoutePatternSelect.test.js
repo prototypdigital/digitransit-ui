@@ -36,7 +36,7 @@ describe('<RoutePatternSelect />', () => {
 
   it('should render a toggle element with divs if there are no patterns with trips', () => {
     const props = {
-      activeTab: 'pysakit',
+      activeTab: 'stajaliste',
       gtfsId: 'HSL:3002U',
       onSelectChange: () => {},
       params: {
@@ -77,7 +77,7 @@ describe('<RoutePatternSelect />', () => {
 
   it('should redirect to the first existing pattern if there is no matching pattern available', () => {
     const props = {
-      activeTab: 'pysakit',
+      activeTab: 'stajaliste',
       gtfsId: 'HSL:3002U',
       onSelectChange: () => {},
       params: {
@@ -111,7 +111,7 @@ describe('<RoutePatternSelect />', () => {
         ...mockContext,
         router: {
           ...mockContext.router,
-          replace: args => {
+          replace: (args) => {
             url = args;
           },
         },
@@ -123,7 +123,7 @@ describe('<RoutePatternSelect />', () => {
 
   it('should not crash if there are no patterns with trips available for the current date', () => {
     const props = {
-      activeTab: 'pysakit',
+      activeTab: 'stajaliste',
       gtfsId: 'HSL:3002U',
       onSelectChange: () => {},
       params: {
@@ -159,7 +159,7 @@ describe('<RoutePatternSelect />', () => {
 
   it('should not display a single pattern as a div inside a select element', () => {
     const props = {
-      activeTab: 'pysakit',
+      activeTab: 'stajaliste',
       gtfsId: 'LINKKI:9422',
       onSelectChange: () => {},
       params: {

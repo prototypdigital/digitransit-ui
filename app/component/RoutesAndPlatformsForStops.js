@@ -17,9 +17,9 @@ export const mapRoutes = (stopFromProps, stopType) => {
   const stopRoutes = [];
   const returnableRoutes = [];
   if (stopType === 'terminal') {
-    stopFromProps.stops.forEach(stopTime => stopRoutes.push({ ...stopTime }));
-    stopRoutes.forEach(route =>
-      route.stoptimesForPatterns.forEach(routeProperties =>
+    stopFromProps.stops.forEach((stopTime) => stopRoutes.push({ ...stopTime }));
+    stopRoutes.forEach((route) =>
+      route.stoptimesForPatterns.forEach((routeProperties) =>
         returnableRoutes.push({
           stop: { platformCode: route.platformCode },
           pattern: {
@@ -33,7 +33,7 @@ export const mapRoutes = (stopFromProps, stopType) => {
           realtime: false,
           lastStop:
             stopFromProps.stops.filter(
-              singleStop =>
+              (singleStop) =>
                 singleStop.gtfsId ===
                 routeProperties.pattern.stops[
                   routeProperties.pattern.stops.length - 1
@@ -46,7 +46,7 @@ export const mapRoutes = (stopFromProps, stopType) => {
       ),
     );
   } else {
-    stopFromProps.stoptimesForPatterns.forEach(singlePattern =>
+    stopFromProps.stoptimesForPatterns.forEach((singlePattern) =>
       returnableRoutes.push({
         stop: { platformCode: stopFromProps.platformCode },
         ...singlePattern,
@@ -68,12 +68,12 @@ export const mapRoutes = (stopFromProps, stopType) => {
     'asc',
   );
 
-  return uniqBy(orderedRoutes, v =>
+  return uniqBy(orderedRoutes, (v) =>
     [v.pattern.headsign, v.pattern.route.shortName, v.stop.platformCode].join(),
   );
 };
 
-const RoutesAndPlatformsForStops = props => {
+const RoutesAndPlatformsForStops = (props) => {
   const mappedRoutes = mapRoutes(
     props.stop,
     props.params.terminalId ? 'terminal' : 'stop',
@@ -88,16 +88,19 @@ const RoutesAndPlatformsForStops = props => {
     );
   }
 
-  const timeTableRows = mappedRoutes.map(route => (
+  const timeTableRows = mappedRoutes.map((route) => (
     <Link
-      to={`/${PREFIX_ROUTES}/${route.pattern.route.gtfsId ||
-        route.pattern.route.gtfsId}/pysakit/${route.pattern.code}`}
-      key={`${route.pattern.code}-${route.headsign}-${route.pattern.route.id ||
-        route.pattern.route.gtfsId}-${route.stop.platformCode}`}
+      to={`/${PREFIX_ROUTES}/${
+        route.pattern.route.gtfsId || route.pattern.route.gtfsId
+      }/stajaliste/${route.pattern.code}`}
+      key={`${route.pattern.code}-${route.headsign}-${
+        route.pattern.route.id || route.pattern.route.gtfsId
+      }-${route.stop.platformCode}`}
     >
       <Departure
-        key={`${route.pattern.code}-${route.headsign}-${route.pattern.route
-          .id || route.pattern.route.gtfsId}-${route.stop.platformCode}`}
+        key={`${route.pattern.code}-${route.headsign}-${
+          route.pattern.route.id || route.pattern.route.gtfsId
+        }-${route.stop.platformCode}`}
         departure={route}
         showStop
         currentTime={0}

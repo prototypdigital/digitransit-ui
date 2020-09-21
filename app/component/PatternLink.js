@@ -13,7 +13,7 @@ function PatternLink({ mode, pattern, route, selected = false }) {
 
   return (
     <Link
-      to={`/${PREFIX_ROUTES}/${route}/pysakit/${pattern}`}
+      to={`/${PREFIX_ROUTES}/${route}/stajaliste/${pattern}`}
       className="route-now-content"
     >
       {icon}

@@ -14,7 +14,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -36,7 +36,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -66,7 +66,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -96,7 +96,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/tampere:32/pysakit/tampere:32:1:01',
+        pathname: '/linjat/tampere:32/stajaliste/tampere:32:1:01',
       },
       params: {
         patternId: 'tampere:32:1:01',
@@ -133,7 +133,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/tampere:32/pysakit/tampere:32:1:01',
+        pathname: '/linjat/tampere:32/stajaliste/tampere:32:1:01',
       },
       params: {
         patternId: 'tampere:32:1:01',
@@ -168,7 +168,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -204,7 +204,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -240,7 +240,7 @@ describe('<RoutePage />', () => {
     const props = {
       breakpoint: 'large',
       location: {
-        pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:01',
+        pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:01',
       },
       params: {
         routeId: 'HSL:1063',
@@ -274,7 +274,7 @@ describe('<RoutePage />', () => {
       const props = {
         breakpoint: 'large',
         location: {
-          pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:02',
+          pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:02',
         },
         params: {
           routeId: 'HSL:1063',
@@ -305,7 +305,7 @@ describe('<RoutePage />', () => {
       const props = {
         breakpoint: 'large',
         location: {
-          pathname: '/linjat/HSL:1063/pysakit/HSL:1063:0:02',
+          pathname: '/linjat/HSL:1063/stajaliste/HSL:1063:0:02',
         },
         params: {
           routeId: 'HSL:1063',

@@ -13,7 +13,7 @@ import ItineraryCircleLine from './ItineraryCircleLine';
 import { PREFIX_ROUTES } from '../util/path';
 
 class CallAgencyLeg extends React.Component {
-  stopCode = stopCode => stopCode && <StopCode code={stopCode} />;
+  stopCode = (stopCode) => stopCode && <StopCode code={stopCode} />;
 
   /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
   render() {
@@ -36,11 +36,9 @@ class CallAgencyLeg extends React.Component {
         <div className="itinerary-call-agency-warning" />
         <div className="small-2 columns itinerary-time-column call">
           <Link
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
             to={
-              `/${PREFIX_ROUTES}/${this.props.leg.route.gtfsId}/pysakit/${
-                this.props.leg.trip.pattern.code
-              }/${this.props.leg.trip.gtfsId}`
+              `/${PREFIX_ROUTES}/${this.props.leg.route.gtfsId}/stajaliste/${this.props.leg.trip.pattern.code}/${this.props.leg.trip.gtfsId}`
               // TODO: Create a helper function for generationg links
             }
           >
@@ -120,7 +118,7 @@ class CallAgencyLeg extends React.Component {
   }
 }
 
-const exampleData = t1 => ({
+const exampleData = (t1) => ({
   realTime: false,
   transitLeg: true,
   startTime: t1 + 20000,
@@ -153,11 +151,7 @@ const exampleData = t1 => ({
 });
 
 CallAgencyLeg.description = () => {
-  const today = moment()
-    .hour(12)
-    .minute(34)
-    .second(0)
-    .valueOf();
+  const today = moment().hour(12).minute(34).second(0).valueOf();
   return (
     <div>
       <p>Displays an itinerary bus leg.</p>
@@ -167,7 +161,8 @@ CallAgencyLeg.description = () => {
           index={1}
           focusAction={() => {}}
         />
-      </ComponentUsageExample>exampleData
+      </ComponentUsageExample>
+      exampleData
     </div>
   );
 };

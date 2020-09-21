@@ -57,7 +57,7 @@ class RoutePatternSelect extends Component {
       return null;
     }
 
-    const options = sortBy(patterns, 'code').map(pattern => {
+    const options = sortBy(patterns, 'code').map((pattern) => {
       if (patterns.length === 2) {
         return (
           <div
@@ -77,8 +77,10 @@ class RoutePatternSelect extends Component {
       );
     });
 
-    if (options.every(o => o.key !== params.patternId)) {
-      router.replace(`/${PREFIX_ROUTES}/${gtfsId}/pysakit/${options[0].key}`);
+    if (options.every((o) => o.key !== params.patternId)) {
+      router.replace(
+        `/${PREFIX_ROUTES}/${gtfsId}/stajaliste/${options[0].key}`,
+      );
     } else if (options.length > 0 && this.state.loading === true) {
       this.setState({ loading: false });
     }
@@ -96,7 +98,7 @@ class RoutePatternSelect extends Component {
             <Icon img="icon-icon_arrow-dropdown" />
             <select
               id="select-route-pattern"
-              onChange={e => this.props.onSelectChange(e.target.value)}
+              onChange={(e) => this.props.onSelectChange(e.target.value)}
               value={this.props.params && this.props.params.patternId}
             >
               {options}
@@ -111,21 +113,21 @@ class RoutePatternSelect extends Component {
               onKeyPress={() =>
                 this.props.onSelectChange(
                   options.find(
-                    o => o.props.value !== this.props.params.patternId,
+                    (o) => o.props.value !== this.props.params.patternId,
                   ).props.value,
                 )
               }
               onClick={() =>
                 this.props.onSelectChange(
                   options.find(
-                    o => o.props.value !== this.props.params.patternId,
+                    (o) => o.props.value !== this.props.params.patternId,
                   ).props.value,
                 )
               }
             >
               {options &&
                 options.filter(
-                  o => o.props.value === this.props.params.patternId,
+                  (o) => o.props.value === this.props.params.patternId,
                 )[0]}
             </div>
 
@@ -135,7 +137,7 @@ class RoutePatternSelect extends Component {
               onClick={() =>
                 this.props.onSelectChange(
                   options.find(
-                    o => o.props.value !== this.props.params.patternId,
+                    (o) => o.props.value !== this.props.params.patternId,
                   ).props.value,
                 )
               }
@@ -204,7 +206,7 @@ const withStore = connectToStores(
     },
   }),
   [],
-  context => ({
+  (context) => ({
     serviceDay: context
       .getStore('TimeStore')
       .getCurrentTime()

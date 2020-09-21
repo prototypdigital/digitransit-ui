@@ -68,9 +68,9 @@ function getComponents(getContentComponent) {
       import(/* webpackChunkName: "route" */ './component/RoutePage').then(
         getDefault,
       ),
-      import(/* webpackChunkName: "route" */ './component/RouteMapContainer').then(
-        getDefault,
-      ),
+      import(
+        /* webpackChunkName: "route" */ './component/RouteMapContainer'
+      ).then(getDefault),
       getContentComponent(),
       import(/* webpackChunkName: "route" */ './component/RoutePageMeta').then(
         getDefault,
@@ -86,16 +86,16 @@ export default (
     <IndexRoute component={Error404} />
     {/* TODO: Should return list of all routes */}
     <Route path=":routeId">
-      <IndexRedirect to="pysakit" />
-      <Route path="pysakit">
+      <IndexRedirect to="stajaliste" />
+      <Route path="stajaliste">
         <IndexRedirect to=":routeId%3A0%3A01" />
         {/* Redirect to first pattern of route */}
         <Route path=":patternId">
           <IndexRoute
             getComponents={getComponents(() =>
-              import(/* webpackChunkName: "route" */ './component/PatternStopsContainer').then(
-                getDefault,
-              ),
+              import(
+                /* webpackChunkName: "route" */ './component/PatternStopsContainer'
+              ).then(getDefault),
             )}
             queries={componentPatternQueries}
             render={ComponentLoading404Renderer}
@@ -103,9 +103,9 @@ export default (
           <Route
             path="kartta"
             getComponents={getComponents(() =>
-              import(/* webpackChunkName: "route" */ './component/PatternStopsContainer').then(
-                getDefault,
-              ),
+              import(
+                /* webpackChunkName: "route" */ './component/PatternStopsContainer'
+              ).then(getDefault),
             )}
             queries={componentPatternQueries}
             render={ComponentLoading404Renderer}
@@ -114,9 +114,9 @@ export default (
           <Route
             path=":tripId"
             getComponents={getComponents(() =>
-              import(/* webpackChunkName: "route" */ './component/TripStopsContainer').then(
-                getDefault,
-              ),
+              import(
+                /* webpackChunkName: "route" */ './component/TripStopsContainer'
+              ).then(getDefault),
             )}
             queries={componentTripQueries}
             render={ComponentLoading404Renderer}
@@ -131,9 +131,9 @@ export default (
           path=":patternId"
           disableMapOnMobile
           getComponents={getComponents(() =>
-            import(/* webpackChunkName: "route" */ './component/RouteScheduleContainer').then(
-              getDefault,
-            ),
+            import(
+              /* webpackChunkName: "route" */ './component/RouteScheduleContainer'
+            ).then(getDefault),
           )}
           queries={componentPatternQueries}
           render={ComponentLoading404Renderer}
@@ -145,9 +145,9 @@ export default (
           path=":patternId"
           disableMapOnMobile
           getComponents={getComponents(() =>
-            import(/* webpackChunkName: "route" */ './component/RouteAlertsContainer').then(
-              getDefault,
-            ),
+            import(
+              /* webpackChunkName: "route" */ './component/RouteAlertsContainer'
+            ).then(getDefault),
           )}
           queries={componentRouteQueries}
           render={ComponentLoading404Renderer}

@@ -18,9 +18,7 @@ function TripLink(props) {
   if (props.trip.trip) {
     return (
       <Link
-        to={`/${PREFIX_ROUTES}/${props.trip.trip.route.gtfsId}/pysakit/${
-          props.trip.trip.pattern.code
-        }/${props.trip.trip.gtfsId}`}
+        to={`/${PREFIX_ROUTES}/${props.trip.trip.route.gtfsId}/stajaliste/${props.trip.trip.pattern.code}/${props.trip.trip.gtfsId}`}
         className="route-now-content"
       >
         {icon}

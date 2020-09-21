@@ -21,9 +21,7 @@ export default function RouteHeader(props) {
   const routeLine =
     props.trip && props.pattern ? (
       <Link
-        to={`/${PREFIX_ROUTES}/${props.route.gtfsId}/pysakit/${
-          props.pattern.code
-        }`}
+        to={`/${PREFIX_ROUTES}/${props.route.gtfsId}/stajaliste/${props.pattern.code}`}
       >
         {routeLineText}
       </Link>

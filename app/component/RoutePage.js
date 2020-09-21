@@ -31,11 +31,11 @@ import { RouteAlertsQuery, StopAlertsQuery } from '../util/alertQueries';
 
 const Tab = {
   Disruptions: 'hairiot',
-  Stops: 'pysakit',
+  Stops: 'stajaliste',
   Timetable: 'aikataulu',
 };
 
-const getActiveTab = pathname => {
+const getActiveTab = (pathname) => {
   if (pathname.indexOf(`/${Tab.Disruptions}`) > -1) {
     return Tab.Disruptions;
   }
@@ -115,7 +115,7 @@ class RoutePage extends React.Component {
     }
   }
 
-  onPatternChange = newPattern => {
+  onPatternChange = (newPattern) => {
     const { location, params, route } = this.props;
     const { config, executeAction, getStore, router } = this.context;
     const { client, topics } = getStore('RealTimeInformationStore');
@@ -155,9 +155,10 @@ class RoutePage extends React.Component {
     );
   };
 
-  changeTab = tab => {
-    const path = `/${PREFIX_ROUTES}/${this.props.route.gtfsId}/${tab}/${this
-      .props.params.patternId || ''}`;
+  changeTab = (tab) => {
+    const path = `/${PREFIX_ROUTES}/${this.props.route.gtfsId}/${tab}/${
+      this.props.params.patternId || ''
+    }`;
     this.context.router.replace(path);
   };
 
@@ -254,12 +255,14 @@ class RoutePage extends React.Component {
               }}
             >
               <div
-                className={`tab-route-disruption ${disruptionClassName ||
-                  `no-alerts`}`}
+                className={`tab-route-disruption ${
+                  disruptionClassName || `no-alerts`
+                }`}
               >
                 <Icon
-                  className={`route-page-tab_icon ${disruptionClassName ||
-                    `no-alerts`}`}
+                  className={`route-page-tab_icon ${
+                    disruptionClassName || `no-alerts`
+                  }`}
                   img={hasActiveAlert ? 'icon-icon_caution' : 'icon-icon_info'}
                 />
                 <FormattedMessage

@@ -194,17 +194,13 @@ describe('OldSearchesStore', () => {
             item: {
               foo: 'baz',
             },
-            lastUpdated: timestamp()
-              .add(1, 'seconds')
-              .unix(),
+            lastUpdated: timestamp().add(1, 'seconds').unix(),
           },
           {
             item: {
               foo: 'yes_filter',
             },
-            lastUpdated: timestamp()
-              .subtract(60, 'days')
-              .unix(),
+            lastUpdated: timestamp().subtract(60, 'days').unix(),
           },
           {
             item: {
@@ -222,8 +218,8 @@ describe('OldSearchesStore', () => {
       const oldSearches = store.getOldSearches();
       expect(oldSearches).to.not.be.empty;
       expect(oldSearches.length).to.equal(3);
-      expect(oldSearches.filter(s => s.foo === 'yes_filter')).to.be.empty;
-      expect(oldSearches.filter(s => s.foo === 'no_filter')).to.not.be.empty;
+      expect(oldSearches.filter((s) => s.foo === 'yes_filter')).to.be.empty;
+      expect(oldSearches.filter((s) => s.foo === 'no_filter')).to.not.be.empty;
     });
 
     it('should ignore a missing timestamp', () => {
@@ -305,7 +301,7 @@ describe('OldSearchesStore', () => {
               },
             ],
             layer: 'route-BUS',
-            link: '/linjat/foobar/pysakit/foobar:0:01',
+            link: '/linjat/foobar/stajaliste/foobar:0:01',
           },
           geometry: {
             coordinates: null,
@@ -333,7 +329,7 @@ describe('OldSearchesStore', () => {
               },
             ],
             layer: 'route-BUS',
-            link: '/linjat/tampere:32/pysakit/tampere:32:0:01',
+            link: '/linjat/tampere:32/stajaliste/tampere:32:0:01',
           },
           geometry: {
             coordinates: null,

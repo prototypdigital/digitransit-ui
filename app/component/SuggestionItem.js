@@ -150,7 +150,7 @@ const exampleStop = {
     code: '0221',
     mode: 'tram',
     layer: 'stop',
-    link: '/pysakit/HSL:1130446',
+    link: '/stajaliste/HSL:1130446',
   },
 };
 

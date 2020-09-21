@@ -1,7 +1,7 @@
 export default {
   onSelectChange: () => {},
   gtfsId: 'HSL:1010',
-  activeTab: 'pysakit',
+  activeTab: 'stajaliste',
   className: 'bp-large',
   serviceDay: '20190306',
   relay: {

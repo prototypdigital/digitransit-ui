@@ -12,7 +12,7 @@ import withBreakpoint from '../util/withBreakpoint';
 import VehicleMarkerContainer from './map/VehicleMarkerContainer';
 
 const getFullscreenTogglePath = (fullscreenMap, params) =>
-  `/${params.stopId ? 'pysakit' : 'terminaalit'}/${
+  `/${params.stopId ? 'stajaliste' : 'terminaalit'}/${
     params.stopId ? params.stopId : params.terminalId
   }${fullscreenMap ? '' : '/kartta'}`;
 

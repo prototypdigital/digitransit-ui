@@ -67,7 +67,7 @@ export default function RouteAlertsRow(
       ? entityIdentifier.split(',').map((identifier, i) => (
           <Link
             key={gtfsIdList[i]}
-            to={`/${PREFIX_ROUTES}/${gtfsIdList[i]}/pysakit/${gtfsIdList[i]}/`}
+            to={`/${PREFIX_ROUTES}/${gtfsIdList[i]}/stajaliste/${gtfsIdList[i]}/`}
             className="route-alert-row-link"
           >
             {' '}
@@ -95,15 +95,14 @@ export default function RouteAlertsRow(
 
   return (
     <div className={cx('route-alert-row', { expired })}>
-      {(entityType === 'route' &&
-        entityMode && (
-          <RouteNumber
-            alertSeverityLevel={severityLevel}
-            color={color}
-            mode={entityMode}
-            vertical
-          />
-        )) ||
+      {(entityType === 'route' && entityMode && (
+        <RouteNumber
+          alertSeverityLevel={severityLevel}
+          color={color}
+          mode={entityMode}
+          vertical
+        />
+      )) ||
         (entityType === 'stop' && (
           <div className="route-number">
             <IconWithBigCaution
@@ -128,14 +127,14 @@ export default function RouteAlertsRow(
                 (!showRouteNameLink && (
                   <div className={entityMode}>{entityIdentifier} </div>
                 )) ||
-                ((entityType === 'stop' &&
+                (entityType === 'stop' &&
                   showRouteNameLink &&
                   stopLinks.length > 0 && (
                     <div className={entityMode}>{stopLinks}</div>
                   )) ||
-                  (!showRouteNameLink && (
-                    <div className={entityMode}>{entityIdentifier}</div>
-                  ))))}
+                (!showRouteNameLink && (
+                  <div className={entityMode}>{entityIdentifier}</div>
+                )))}
             {url && (
               <ExternalLink className="route-alert-url" href={checkedUrl}>
                 {intl.formatMessage({ id: 'extra-info' })}
@@ -227,14 +226,8 @@ RouteAlertsRow.description = () => (
       <ComponentUsageExample description="service alert, valid yesterday">
         <RouteAlertsRow
           currentTime={moment().unix()}
-          startTime={moment()
-            .add(-1, 'days')
-            .startOf('day')
-            .unix()}
-          endTime={moment()
-            .add(-1, 'days')
-            .endOf('day')
-            .unix()}
+          startTime={moment().add(-1, 'days').startOf('day').unix()}
+          endTime={moment().add(-1, 'days').endOf('day').unix()}
           header="Lähijunat välillä Pasila-Leppävaara peruttu"
           description="Suurin osa lähijunista välillä Pasila-Leppävaara on peruttu asetinlaitevian vuoksi"
           entityIdentifier="Y, S, U, L, E, A"
@@ -247,12 +240,8 @@ RouteAlertsRow.description = () => (
       <ComponentUsageExample description="service alert, valid today">
         <RouteAlertsRow
           currentTime={moment().unix()}
-          startTime={moment()
-            .startOf('day')
-            .unix()}
-          endTime={moment()
-            .endOf('day')
-            .unix()}
+          startTime={moment().startOf('day').unix()}
+          endTime={moment().endOf('day').unix()}
           header="Lähijunat välillä Pasila-Leppävaara peruttu"
           description="Suurin osa lähijunista välillä Pasila-Leppävaara on peruttu asetinlaitevian vuoksi"
           entityIdentifier="Y, S, U, L, E, A"
@@ -264,14 +253,8 @@ RouteAlertsRow.description = () => (
       <ComponentUsageExample description="service alert, valid tomorrow">
         <RouteAlertsRow
           currentTime={moment().unix()}
-          startTime={moment()
-            .add(1, 'day')
-            .startOf('day')
-            .unix()}
-          endTime={moment()
-            .add(1, 'day')
-            .endOf('day')
-            .unix()}
+          startTime={moment().add(1, 'day').startOf('day').unix()}
+          endTime={moment().add(1, 'day').endOf('day').unix()}
           header="Lähijunat välillä Pasila-Leppävaara peruttu"
           description="Suurin osa lähijunista välillä Pasila-Leppävaara on peruttu asetinlaitevian vuoksi"
           entityIdentifier="Y, S, U, L, E, A"
@@ -289,10 +272,7 @@ RouteAlertsRow.description = () => (
             .add(8, 'hours')
             .add(37, 'minutes')
             .unix()}
-          endTime={moment()
-            .add(25, 'days')
-            .endOf('day')
-            .unix()}
+          endTime={moment().add(25, 'days').endOf('day').unix()}
           header="Lähijunat välillä Pasila-Leppävaara peruttu"
           description="Suurin osa lähijunista välillä Pasila-Leppävaara on peruttu asetinlaitevian vuoksi"
           entityIdentifier="Y, S, U, L, E, A"
