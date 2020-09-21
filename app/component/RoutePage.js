@@ -25,13 +25,13 @@ import {
   isAlertActive,
   getActiveAlertSeverityLevel,
 } from '../util/alertUtils';
-import { PREFIX_ROUTES } from '../util/path';
+import { PREFIX_ROUTES, PREFIX_STOPS } from '../util/path';
 import withBreakpoint from '../util/withBreakpoint';
 import { RouteAlertsQuery, StopAlertsQuery } from '../util/alertQueries';
 
 const Tab = {
   Disruptions: 'hairiot',
-  Stops: 'stajaliste',
+  Stops: PREFIX_STOPS,
   Timetable: 'aikataulu',
 };
 

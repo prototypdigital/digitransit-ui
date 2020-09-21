@@ -10,9 +10,10 @@ import SelectedStopPopupContent from './SelectedStopPopupContent';
 import Icon from './Icon';
 import withBreakpoint from '../util/withBreakpoint';
 import VehicleMarkerContainer from './map/VehicleMarkerContainer';
+import { PREFIX_STOPS } from '../util/path';
 
 const getFullscreenTogglePath = (fullscreenMap, params) =>
-  `/${params.stopId ? 'stajaliste' : 'terminaalit'}/${
+  `/${params.stopId ? PREFIX_STOPS : 'terminaalit'}/${
     params.stopId ? params.stopId : params.terminalId
   }${fullscreenMap ? '' : '/kartta'}`;
 

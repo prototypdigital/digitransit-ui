@@ -10,7 +10,7 @@ import uniqBy from 'lodash/uniqBy';
 import Departure from './Departure';
 import DepartureListHeader from './DepartureListHeader';
 import Icon from './Icon';
-import { PREFIX_ROUTES } from '../util/path';
+import { PREFIX_ROUTES, PREFIX_STOPS } from '../util/path';
 import { routeNameCompare } from '../util/searchUtils';
 
 export const mapRoutes = (stopFromProps, stopType) => {
@@ -92,7 +92,7 @@ const RoutesAndPlatformsForStops = (props) => {
     <Link
       to={`/${PREFIX_ROUTES}/${
         route.pattern.route.gtfsId || route.pattern.route.gtfsId
-      }/stajaliste/${route.pattern.code}`}
+      }/${PREFIX_STOPS}/${route.pattern.code}`}
       key={`${route.pattern.code}-${route.headsign}-${
         route.pattern.route.id || route.pattern.route.gtfsId
       }-${route.stop.platformCode}`}

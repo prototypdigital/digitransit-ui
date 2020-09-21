@@ -16,7 +16,7 @@ import {
   stoptimeHasCancelation,
 } from '../util/alertUtils';
 import { isCallAgencyDeparture } from '../util/legUtils';
-import { PREFIX_ROUTES } from '../util/path';
+import { PREFIX_ROUTES, PREFIX_STOPS } from '../util/path';
 
 const DepartureRow = ({ departure, currentTime, distance }, context) => {
   let departureTimes;
@@ -48,7 +48,7 @@ const DepartureRow = ({ departure, currentTime, distance }, context) => {
     context.router.push(val);
   };
 
-  const departureLinkUrl = `/${PREFIX_ROUTES}/${departure.pattern.route.gtfsId}/stajaliste/${departure.pattern.code}`;
+  const departureLinkUrl = `/${PREFIX_ROUTES}/${departure.pattern.route.gtfsId}/${PREFIX_STOPS}/${departure.pattern.code}`;
 
   // In case there's only one departure for the route,
   // add a dummy cell to keep the table layout from breaking

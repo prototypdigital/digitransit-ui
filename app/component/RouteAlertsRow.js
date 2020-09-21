@@ -67,7 +67,7 @@ export default function RouteAlertsRow(
       ? entityIdentifier.split(',').map((identifier, i) => (
           <Link
             key={gtfsIdList[i]}
-            to={`/${PREFIX_ROUTES}/${gtfsIdList[i]}/stajaliste/${gtfsIdList[i]}/`}
+            to={`/${PREFIX_ROUTES}/${gtfsIdList[i]}/${PREFIX_STOPS}/${gtfsIdList[i]}/`}
             className="route-alert-row-link"
           >
             {' '}

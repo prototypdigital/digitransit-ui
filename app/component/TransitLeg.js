@@ -20,7 +20,7 @@ import {
   legHasCancelation,
   tripHasCancelationForStop,
 } from '../util/alertUtils';
-import { PREFIX_ROUTES } from '../util/path';
+import { PREFIX_ROUTES, PREFIX_STOPS } from '../util/path';
 import { durationToString } from '../util/timeUtils';
 
 class TransitLeg extends React.Component {
@@ -169,7 +169,7 @@ class TransitLeg extends React.Component {
           <Link
             onClick={(e) => e.stopPropagation()}
             to={
-              `/${PREFIX_ROUTES}/${leg.route.gtfsId}/stajaliste/${leg.trip.pattern.code}/${leg.trip.gtfsId}`
+              `/${PREFIX_ROUTES}/${leg.route.gtfsId}/${PREFIX_STOPS}/${leg.trip.pattern.code}/${leg.trip.gtfsId}`
               // TODO: Create a helper function for generationg links
             }
           >

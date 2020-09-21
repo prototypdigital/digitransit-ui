@@ -22,6 +22,7 @@ import {
   getActiveAlertSeverityLevel,
 } from '../util/alertUtils';
 import withBreakpoint from '../util/withBreakpoint';
+import { PREFIX_STOPS } from '../util/path';
 
 const Tab = {
   Disruptions: 'hairiot',
@@ -53,7 +54,7 @@ function StopPageTabContainer(
   const activeTab = getActiveTab(pathname);
   const isTerminal = params.terminalId != null;
   const urlBase = `/${
-    isTerminal ? 'terminaalit' : 'stajaliste'
+    isTerminal ? 'terminaalit' : PREFIX_STOPS
   }/${encodeURIComponent(
     params.terminalId ? params.terminalId : params.stopId,
   )}`;

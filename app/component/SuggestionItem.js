@@ -15,6 +15,7 @@ import {
   getGTFSId,
 } from '../util/suggestionUtils';
 import ComponentUsageExample from './ComponentUsageExample';
+import { PREFIX_STOPS } from '../util/path';
 
 const SuggestionItem = pure(
   ({ item, useTransportIcons, doNotShowLinkToStop, loading }) => {
@@ -150,7 +151,7 @@ const exampleStop = {
     code: '0221',
     mode: 'tram',
     layer: 'stop',
-    link: '/stajaliste/HSL:1130446',
+    link: `/${PREFIX_STOPS}/HSL:1130446`,
   },
 };
 
