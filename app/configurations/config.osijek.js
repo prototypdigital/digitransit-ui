@@ -85,6 +85,9 @@ export default {
     description: APP_DESCRIPTION,
   },
 
+  // Google Tag Manager id
+  GTMid: 'GTM-NC9NQQW',
+
   title: APP_TITLE,
 
   textLogo: false,
