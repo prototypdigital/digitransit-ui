@@ -19,6 +19,7 @@ import {
   stopRealTimeClient,
 } from '../../action/realTimeClientAction';
 import triggerMessage from '../../util/messageUtils';
+import { BreakpointConsumer } from '../../util/withBreakpoint';
 
 const DEFAULT_ZOOM = 15;
 const FOCUS_ZOOM = 16;
@@ -48,12 +49,12 @@ const Component = onlyUpdateCoordChanges(MapContainer);
 /* stop yet another eslint madness */
 /* eslint-disable react/sort-comp */
 
-const startClient = context => {
+const startClient = (context) => {
   const { realTime } = context.config;
   let agency;
 
   /* handle multiple feedid case */
-  context.config.feedIds.forEach(ag => {
+  context.config.feedIds.forEach((ag) => {
     if (!agency && realTime[ag]) {
       agency = ag;
     }
@@ -244,7 +245,7 @@ class MapWithTrackingStateHandler extends React.Component {
     }
   }
 
-  setMapElementRef = element => {
+  setMapElementRef = (element) => {
     if (element && this.mapElement !== element) {
       this.mapElement = element;
     }
@@ -281,7 +282,7 @@ class MapWithTrackingStateHandler extends React.Component {
   };
 
   usePosition(origin) {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       origin,
       mapTracking: true,
       focusOnOrigin: false,
@@ -293,7 +294,7 @@ class MapWithTrackingStateHandler extends React.Component {
   }
 
   useOrigin(origin) {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       origin,
       mapTracking: false,
       focusOnOrigin: true,
@@ -305,7 +306,7 @@ class MapWithTrackingStateHandler extends React.Component {
   }
 
   useDestination(destination) {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       destination,
       mapTracking: false,
       focusOnOrigin: false,
@@ -388,12 +389,12 @@ class MapWithTrackingStateHandler extends React.Component {
       const { bounds } = this.state;
       Object.keys(geoJson)
         .filter(
-          key =>
+          (key) =>
             mapLayers.geoJson[key] !== false &&
             (mapLayers.geoJson[key] === true ||
               geoJson[key].isOffByDefault !== true),
         )
-        .forEach(key => {
+        .forEach((key) => {
           leafletObjs.push(
             <LazilyLoad modules={jsonModules} key={key}>
               {({ GeoJSON }) => (
@@ -440,6 +441,19 @@ class MapWithTrackingStateHandler extends React.Component {
             />
           )}
         </div>
+
+        <BreakpointConsumer>
+          {(breakpoint) => (
+            <img
+              // eslint-disable-next-line global-require
+              src={require('../../configurations/images/osijek/eu_logo.png')}
+              alt="EU fund logo"
+              className={`eu-logo${
+                breakpoint !== 'large' ? ' eu-logo--mobile' : ''
+              }`}
+            />
+          )}
+        </BreakpointConsumer>
       </Component>
     );
   }

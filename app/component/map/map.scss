@@ -668,3 +668,18 @@ div.map-click-prevent-overlay {
     border-radius: $border-radius;
   }
 }
+
+.eu-logo {
+  position: absolute;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  left: 112px;
+  bottom: 36px;
+  height: 10%;
+  &--mobile {
+    left: 0;
+    right: 0;
+    bottom: 16px;
+  }
+}
